@@ -12,15 +12,17 @@ A single bioinformatics pipeline produces one kind of result: a variant call set
 
 ## Dataset
 
-This project does not generate new biological results. It loads real, already committed outputs from three other repos in this portfolio:
+This project does not generate new biological results. It loads real, already committed outputs from the other five repos in this portfolio, all now complete:
 
 | Source | File(s) | What was pulled in |
 |---|---|---|
 | [rna-seq-differential-expression-pipeline](https://github.com/MohamedElsaid-bit/rna-seq-differential-expression-pipeline) (v1.0) | `config/samples.tsv`, `results/tables/deseq2_results.tsv` | 8 samples (4 donors, dex vs untreated), all 3,543 tested genes with their DESeq2 statistics |
 | [variant-calling-pipeline](https://github.com/MohamedElsaid-bit/variant-calling-pipeline) (v1.0) | `results/vcf/filtered_snps.vcf.gz`, `results/vcf/filtered_indels.vcf.gz` | All 89 raw candidate variants with their real GATK FILTER outcome (not just the 71 that passed) |
-| [biomedical-ml-classification](https://github.com/MohamedElsaid-bit/biomedical-ml-classification) | README test set table | Headline test metrics (accuracy, ROC/AUC) for the three classifiers |
+| [biomedical-ml-classification](https://github.com/MohamedElsaid-bit/biomedical-ml-classification) (v1.0) | README test set table | Headline test metrics (accuracy, ROC/AUC) for the three classifiers |
+| [gut-microbiome-diversity-analysis](https://github.com/MohamedElsaid-bit/gut-microbiome-diversity-analysis) (v1.0) | `results/tables/*.csv` | All 19 real mouse samples, ASV count, PERMANOVA result, and ANCOM-BC2 significant genera count |
+| [multi-omics-integration-capstone](https://github.com/MohamedElsaid-bit/multi-omics-integration-capstone) (v1.0) | `results/tables/model_performance_summary.csv` | Per block and DIABLO integrated test accuracy and CV balanced error rate |
 
-Every number in `data/processed/*.csv` traces back to a file already committed and public in one of those repos; nothing here is simulated or invented for this project. The two planned projects (gut microbiome, multi omics capstone) are included as `Planned` rows in the `projects` table so the portfolio wide view is complete, with no runs or results attached since none exist yet.
+Every number in `data/processed/*.csv` traces back to a file already committed and public in one of those repos; nothing here is simulated or invented for this project.
 
 The extraction step that produced these CSVs is not part of this repo (it reads sibling repo paths that only exist on the machine that built it); the CSVs it produced are committed here, so this repo is self contained and reproducible from a clone alone.
 
@@ -68,7 +70,7 @@ sqlite> .read sql/queries/05_qc_metrics_pivot.sql
 
 ## Results and interpretation
 
-**Portfolio status in one query.** [`01_project_overview.sql`](sql/queries/01_project_overview.sql) joins `projects` to `pipeline_runs` and shows 3 of the 5 portfolio projects as Complete with exactly one run each, and the 2 planned projects correctly showing zero runs through the `LEFT JOIN`, rather than being silently dropped.
+**Portfolio status in one query.** [`01_project_overview.sql`](sql/queries/01_project_overview.sql) joins `projects` to `pipeline_runs` and shows all 5 portfolio projects as Complete, each with exactly one run; the `LEFT JOIN` means a still-planned project would correctly show zero runs rather than being silently dropped, which was the shape of this query back when Projects 4 and 5 had not been built yet.
 
 **Variant filtering, with real filter reasons.** Loading the pre-merge SNP and indel VCFs (not just the final PASS-only file) keeps each failing variant's actual GATK filter tag, not just a PASS/fail flag.
 
@@ -84,20 +86,21 @@ Of 89 raw candidate variants, 71 passed (68 SNPs, 3 indels). Of the 18 filtered 
 
 **Differential expression, cross checked.** [`04_de_direction_summary.sql`](sql/queries/04_de_direction_summary.sql) reproduces the RNA-seq README's headline numbers independently from the raw DESeq2 table: 3,543 genes tested, 108 significant (padj < 0.05 and |log2FC| > 1), split 61 up and 47 down. [`03_top_upregulated_genes.sql`](sql/queries/03_top_upregulated_genes.sql) ranks the strongest upregulated hits by fold change; FKBP5, GPX3, PER1 and DUSP1 (the genes the RNA-seq README calls out by name) all land in the top 10, alongside a few higher fold change genes (ALOX15B, ADRA1B, MARCHF10, C7, and two rows without a resolved gene symbol) that README did not individually discuss.
 
-**Cross pipeline comparison in one row per run.** [`05_qc_metrics_pivot.sql`](sql/queries/05_qc_metrics_pivot.sql) uses `CASE` inside `MAX()` to pivot the long `qc_metrics` table so one row shows a DE gene count next to a Ti/Tv ratio next to a model's test accuracy, three unrelated metric types from three unrelated pipeline kinds, side by side. SQLite has no native `PIVOT`, so conditional aggregation is the standard way to get this shape.
+**Gut microbiome and multi-omics, the same way.** All 19 real mouse gut samples (9 Early, 10 Late) are in `samples`, and `qc_metrics` carries each project's headline numbers: PERMANOVA R2 = 0.430 for the gut microbiome beta diversity result, and 98.6% (mRNA alone) versus 94.3% (DIABLO, 3 blocks integrated) for the multi-omics capstone's test accuracy. Querying these back out of the database reproduces both repos' own reported numbers exactly, the same cross check already done above for the RNA-seq and variant-calling results.
+
+**Cross pipeline comparison in one row per run.** [`05_qc_metrics_pivot.sql`](sql/queries/05_qc_metrics_pivot.sql) uses `CASE` inside `MAX()` to pivot the long `qc_metrics` table so one row shows a DE gene count next to a Ti/Tv ratio next to a model's test accuracy next to a PERMANOVA R2, five unrelated metric types from five unrelated pipeline kinds, side by side. SQLite has no native `PIVOT`, so conditional aggregation is the standard way to get this shape.
 
 **Honesty check on the runtime query.** [`07_runtime_ranking.sql`](sql/queries/07_runtime_ranking.sql) ranks runs by wall clock time using `RANK() OVER (...)`. Today it returns exactly one row, because only the variant calling pipeline's README reports a precise measured runtime (3 minutes 34 seconds); the RNA-seq README only gives a 30 to 40 minute range, and the ML project's runtime was never recorded. The query filters on `runtime_seconds IS NOT NULL` rather than coercing the range into a fake point estimate.
 
 ## Limitations
 
-- Three real pipeline runs is a small dataset for a database project; several queries (runtime ranking, cross pipeline pivot) will get more interesting as Projects 4 and 5 add runs
+- Five real pipeline runs, one each, is still a small dataset for a database project; the runtime ranking query in particular only has one row with a precise measured time
 - The ETL from source repo to CSV was a one time manual pull, not an automated sync; if the source repos' committed results change, these CSVs have to be regenerated by hand
 - No concurrent write access or transactions are exercised since this is a read mostly reporting database, not an operational one
 - SQLite was chosen for zero install reproducibility; a true multi user LIMS would need a client/server database with role based access
 
 ## Future improvements
 
-- Re-run the extraction step when Project 4 (gut microbiome) and Project 5 (multi omics capstone) produce real results, and add their runs, samples, and metrics
 - Add a small `CHECK` or trigger layer enforcing that a run's `project_id` matches its samples' `project_id`
 - Port the schema to PostgreSQL to demonstrate indexes, `EXPLAIN ANALYZE`, and role based access control on the same data
 - Add a thin CLI (`argparse`) over `run_report.py` so a single named query can be run and exported without re-running the whole report

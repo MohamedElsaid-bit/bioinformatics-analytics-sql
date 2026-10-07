@@ -17,3 +17,16 @@ run_id,metric_name,metric_value,source_note
 3,best_test_accuracy,0.983,README test set table (Logistic Regression and SVM tied)
 3,best_test_roc_auc,0.995,README test set table
 3,random_forest_test_accuracy,0.956,README test set table
+4,asvs_after_chimera_removal,218,results/tables/reads_tracked_through_pipeline.csv
+4,pct_reads_retained,96.3,"README, post chimera removal"
+4,shannon_wilcoxon_p,0.113,"results/tables/alpha_diversity_tests.csv, not significant"
+4,chao1_wilcoxon_p,0.133,"results/tables/alpha_diversity_tests.csv, not significant"
+4,permanova_r2,0.43,results/tables/permanova_bray_curtis.csv
+4,permanova_p,0.001,"results/tables/permanova_bray_curtis.csv, 999 permutations"
+4,significant_genera_ancombc,9,"results/tables/ancombc_significant_genera.csv, of 43 testable"
+5,mrna_alone_test_accuracy,0.986,results/tables/model_performance_summary.csv
+5,mirna_alone_test_accuracy,0.843,results/tables/model_performance_summary.csv
+5,protein_alone_cv_ber,0.145,"results/tables/model_performance_summary.csv, no test set for this block"
+5,diablo_integrated_test_accuracy,0.943,"results/tables/model_performance_summary.csv, 2 of 3 blocks at test time"
+5,diablo_integrated_cv_ber,0.119,results/tables/model_performance_summary.csv
+5,diablo_sparse_features_selected,45,"results/tables/diablo_top_features_comp1.csv, 15 per block"

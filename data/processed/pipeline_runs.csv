@@ -2,3 +2,5 @@ run_id,project_id,pipeline_name,pipeline_version,tools,run_date,runtime_seconds,
 1,1,RNA-seq DE (STAR + DESeq2),v1.0,"FastQC, Trimmomatic, STAR, featureCounts, DESeq2, clusterProfiler, MultiQC, Snakemake",2026-09-23,,"30 to 40 minutes on 20 threads (reference run), per README"
 2,2,Germline variant calling (GATK4),v1.0,"BWA-MEM, SAMtools, GATK4, bcftools, Snakemake",2026-09-01,214,"3 minutes 34 seconds, 1 CPU core, no GPU (verified in README)"
 3,3,Breast cancer classification (scikit-learn),unreleased,"pandas, scikit-learn (Logistic Regression, Random Forest, SVM)",2026-06-18,,Not documented in source repo
+4,4,Gut microbiome diversity (DADA2),v1.0,"DADA2, phyloseq, vegan, ANCOM-BC2",2026-10-07,,"Under 10 minutes total on a 4 thread budget, 7 GB RAM (verified in README)"
+5,5,Multi-omics integration (DIABLO),v1.0,"R, mixOmics (DIABLO, PLS-DA, PCA)",2026-10-07,,"Under 2 minutes total, 7 GB RAM (verified in README)"

@@ -2,5 +2,5 @@ project_id,name,repo_url,status,description
 1,RNA-seq Differential Expression Pipeline,https://github.com/MohamedElsaid-bit/rna-seq-differential-expression-pipeline,Complete,"STAR/DESeq2/Snakemake pipeline run end to end on the airway dexamethasone dataset (GSE52778), scoped to chr5/chr6/chr17."
 2,Germline Variant Calling Pipeline,https://github.com/MohamedElsaid-bit/variant-calling-pipeline,Complete,"GATK4 best-practices germline calling on chr21, run on nf-core/test-datasets (sarek3 branch)."
 3,Biomedical ML Classification Pipeline,https://github.com/MohamedElsaid-bit/biomedical-ml-classification,Complete,"scikit-learn classifiers (Logistic Regression, Random Forest, SVM) on the UCI Breast Cancer Wisconsin dataset."
-4,Gut Microbiome Diversity Analysis,,Planned,"QIIME2/DADA2 ASV inference, alpha/beta diversity, ANCOM-BC differential abundance. Not started."
-5,Multi-Omics Integration Capstone,,Planned,Python/R integration layer plus a Power BI dashboard. Not started.
+4,Gut Microbiome Diversity Analysis,https://github.com/MohamedElsaid-bit/gut-microbiome-diversity-analysis,Complete,DADA2 ASV inference and phyloseq/vegan diversity analysis on real mouse fecal 16S data (early vs late post weaning).
+5,Multi-Omics Integration Capstone,https://github.com/MohamedElsaid-bit/multi-omics-integration-capstone,Complete,"DIABLO (mixOmics) integration of real matched TCGA mRNA, miRNA, and protein data to predict breast cancer molecular subtype."

@@ -9,3 +9,23 @@ sample_id,project_id,sample_name,organism,subject_or_donor,condition,source_acce
 8,1,N061011_dex,Homo sapiens (airway smooth muscle cells),N061011,dex,SRR1039521,
 9,2,sample1,"Homo sapiens (simulated reads, chr21 only)",,,"nf-core/test-datasets, sarek3 branch","Simulated CI test reads, not a real sequencing run; see repo README for the Ti/Tv and dbSNP concordance caveat."
 10,3,breast_cancer_wisconsin_dataset,Homo sapiens (fine needle aspirate biopsies),,"malignant/benign (569 records, 37.3%/62.7%)",sklearn.datasets.load_breast_cancer,"Tutorial dataset of anonymized records, not individually tracked samples; one summary row, not 569."
+11,4,F3D0,Mus musculus (fecal/gut),days post weaning 0,Early,"Kozich et al. 2013, mothur MiSeq SOP dataset",
+12,4,F3D1,Mus musculus (fecal/gut),days post weaning 1,Early,"Kozich et al. 2013, mothur MiSeq SOP dataset",
+13,4,F3D2,Mus musculus (fecal/gut),days post weaning 2,Early,"Kozich et al. 2013, mothur MiSeq SOP dataset",
+14,4,F3D3,Mus musculus (fecal/gut),days post weaning 3,Early,"Kozich et al. 2013, mothur MiSeq SOP dataset",
+15,4,F3D5,Mus musculus (fecal/gut),days post weaning 5,Early,"Kozich et al. 2013, mothur MiSeq SOP dataset",
+16,4,F3D6,Mus musculus (fecal/gut),days post weaning 6,Early,"Kozich et al. 2013, mothur MiSeq SOP dataset",
+17,4,F3D7,Mus musculus (fecal/gut),days post weaning 7,Early,"Kozich et al. 2013, mothur MiSeq SOP dataset",
+18,4,F3D8,Mus musculus (fecal/gut),days post weaning 8,Early,"Kozich et al. 2013, mothur MiSeq SOP dataset",
+19,4,F3D9,Mus musculus (fecal/gut),days post weaning 9,Early,"Kozich et al. 2013, mothur MiSeq SOP dataset",
+20,4,F3D141,Mus musculus (fecal/gut),days post weaning 141,Late,"Kozich et al. 2013, mothur MiSeq SOP dataset",
+21,4,F3D142,Mus musculus (fecal/gut),days post weaning 142,Late,"Kozich et al. 2013, mothur MiSeq SOP dataset",
+22,4,F3D143,Mus musculus (fecal/gut),days post weaning 143,Late,"Kozich et al. 2013, mothur MiSeq SOP dataset",
+23,4,F3D144,Mus musculus (fecal/gut),days post weaning 144,Late,"Kozich et al. 2013, mothur MiSeq SOP dataset",
+24,4,F3D145,Mus musculus (fecal/gut),days post weaning 145,Late,"Kozich et al. 2013, mothur MiSeq SOP dataset",
+25,4,F3D146,Mus musculus (fecal/gut),days post weaning 146,Late,"Kozich et al. 2013, mothur MiSeq SOP dataset",
+26,4,F3D147,Mus musculus (fecal/gut),days post weaning 147,Late,"Kozich et al. 2013, mothur MiSeq SOP dataset",
+27,4,F3D148,Mus musculus (fecal/gut),days post weaning 148,Late,"Kozich et al. 2013, mothur MiSeq SOP dataset",
+28,4,F3D149,Mus musculus (fecal/gut),days post weaning 149,Late,"Kozich et al. 2013, mothur MiSeq SOP dataset",
+29,4,F3D150,Mus musculus (fecal/gut),days post weaning 150,Late,"Kozich et al. 2013, mothur MiSeq SOP dataset",
+30,5,breast_TCGA_mrna_mirna_protein,"Homo sapiens (breast tumor, TCGA)",,subtype Basal/Her2/LumA (150 train + 70 test records),mixOmics::breast.TCGA (Singh et al. 2019),"220 real patients across 3 omics blocks; one summary row, not 220."

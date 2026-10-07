@@ -9,7 +9,9 @@ SELECT
     MAX(CASE WHEN m.metric_name = 'pass_variants' THEN m.metric_value END)           AS pass_variants,
     MAX(CASE WHEN m.metric_name = 'titv_ratio' THEN m.metric_value END)              AS titv_ratio,
     MAX(CASE WHEN m.metric_name = 'best_test_accuracy' THEN m.metric_value END)      AS best_test_accuracy,
-    MAX(CASE WHEN m.metric_name = 'best_test_roc_auc' THEN m.metric_value END)       AS best_test_roc_auc
+    MAX(CASE WHEN m.metric_name = 'best_test_roc_auc' THEN m.metric_value END)       AS best_test_roc_auc,
+    MAX(CASE WHEN m.metric_name = 'permanova_r2' THEN m.metric_value END)            AS permanova_r2,
+    MAX(CASE WHEN m.metric_name = 'diablo_integrated_test_accuracy' THEN m.metric_value END) AS diablo_test_accuracy
 FROM pipeline_runs AS r
 JOIN projects AS p ON p.project_id = r.project_id
 LEFT JOIN qc_metrics AS m ON m.run_id = r.run_id

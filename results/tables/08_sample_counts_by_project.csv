@@ -2,3 +2,5 @@ project,n_samples,conditions_represented
 RNA-seq Differential Expression Pipeline,8,"untreated,dex"
 Germline Variant Calling Pipeline,1,
 Biomedical ML Classification Pipeline,1,"malignant/benign (569 records, 37.3%/62.7%)"
+Gut Microbiome Diversity Analysis,19,"Early,Late"
+Multi-Omics Integration Capstone,1,subtype Basal/Her2/LumA (150 train + 70 test records)
