@@ -1,0 +1,47 @@
+<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="Bar chart: of 71 PASS variants, 35 sit under 10x read depth, 14 at 10x to 19x, 13 at 20x to 34x, and 9 at 35x or more.">
+  <rect x="0" y="0" width="640" height="360" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)" stroke-width="1"/>
+
+  <text x="32" y="30" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+        font-size="16" font-weight="600" fill="#0b0b0b">PASS variants by read depth (n = 71)</text>
+
+  <!-- gridlines at 0/10/20/30/40 -->
+  <g stroke="#e1e0d9" stroke-width="1">
+    <line x1="60" y1="300" x2="600" y2="300"/>
+    <line x1="60" y1="232.5" x2="600" y2="232.5"/>
+    <line x1="60" y1="165" x2="600" y2="165"/>
+    <line x1="60" y1="97.5" x2="600" y2="97.5"/>
+    <line x1="60" y1="30" x2="600" y2="30"/>
+  </g>
+  <g font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" fill="#898781" text-anchor="end">
+    <text x="52" y="304">0</text>
+    <text x="52" y="236.5">10</text>
+    <text x="52" y="169">20</text>
+    <text x="52" y="101.5">30</text>
+    <text x="52" y="34">40</text>
+  </g>
+
+  <line x1="60" y1="300" x2="600" y2="300" stroke="#c3c2b7" stroke-width="1.5"/>
+
+  <!-- bars: under 10x = 35, 10-19x = 14, 20-34x = 13, 35x+ = 9 -->
+  <g fill="#2a78d6">
+    <rect x="96"  y="64"  width="90" height="236" rx="4" ry="4"/>
+    <rect x="222" y="205.5" width="90" height="94.5" rx="4" ry="4"/>
+    <rect x="348" y="212" width="90" height="88" rx="4" ry="4"/>
+    <rect x="474" y="239" width="90" height="61" rx="4" ry="4"/>
+  </g>
+
+  <g font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#0b0b0b" text-anchor="middle">
+    <text x="141" y="56">35</text>
+    <text x="267" y="197.5">14</text>
+    <text x="393" y="204">13</text>
+    <text x="519" y="231">9</text>
+  </g>
+
+  <g font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="13" fill="#898781" text-anchor="middle">
+    <text x="141" y="320">under 10x</text>
+    <text x="267" y="320">10x to 19x</text>
+    <text x="393" y="320">20x to 34x</text>
+    <text x="519" y="320">35x or more</text>
+  </g>
+</svg>

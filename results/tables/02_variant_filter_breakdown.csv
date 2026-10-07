@@ -1,0 +1,6 @@
+variant_type,filter,n_variants,pct_of_type
+INDEL,PASS,3,100.0
+SNP,MQ40,8,9.3
+SNP,PASS,68,79.1
+SNP,QD2,1,1.2
+SNP,SOR3,9,10.5

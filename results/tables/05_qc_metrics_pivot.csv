@@ -1,0 +1,4 @@
+project,pipeline_name,significant_degs,pass_variants,titv_ratio,best_test_accuracy,best_test_roc_auc
+RNA-seq Differential Expression Pipeline,RNA-seq DE (STAR + DESeq2),108.0,,,,
+Germline Variant Calling Pipeline,Germline variant calling (GATK4),,71.0,0.26,,
+Biomedical ML Classification Pipeline,Breast cancer classification (scikit-learn),,,,0.983,0.995

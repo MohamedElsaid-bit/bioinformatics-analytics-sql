@@ -1,0 +1,54 @@
+<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="Bar chart: of 89 raw candidate variants, 71 passed GATK hard filtering, 9 were filtered on strand bias (SOR3), 8 on mapping quality (MQ40), and 1 on quality by depth (QD2).">
+  <rect x="0" y="0" width="640" height="360" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)" stroke-width="1"/>
+
+  <text x="32" y="30" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+        font-size="16" font-weight="600" fill="#0b0b0b">Raw candidate variants by filter outcome (n = 89)</text>
+
+  <!-- gridlines at 0/20/40/60/80 -->
+  <g stroke="#e1e0d9" stroke-width="1">
+    <line x1="60" y1="300" x2="600" y2="300"/>
+    <line x1="60" y1="232.5" x2="600" y2="232.5"/>
+    <line x1="60" y1="165" x2="600" y2="165"/>
+    <line x1="60" y1="97.5" x2="600" y2="97.5"/>
+    <line x1="60" y1="30" x2="600" y2="30"/>
+  </g>
+  <g font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" fill="#898781" text-anchor="end">
+    <text x="52" y="304">0</text>
+    <text x="52" y="236.5">20</text>
+    <text x="52" y="169">40</text>
+    <text x="52" y="101.5">60</text>
+    <text x="52" y="34">80</text>
+  </g>
+
+  <!-- baseline -->
+  <line x1="60" y1="300" x2="600" y2="300" stroke="#c3c2b7" stroke-width="1.5"/>
+
+  <!-- bars: PASS 71, SOR3 9, MQ40 8, QD2 1 -->
+  <g fill="#2a78d6">
+    <rect x="96"  y="60"  width="90" height="240" rx="4" ry="4"/>
+    <rect x="222" y="270" width="90" height="30"  rx="4" ry="4"/>
+    <rect x="348" y="273" width="90" height="27"  rx="4" ry="4"/>
+    <rect x="474" y="296" width="90" height="4"   rx="2" ry="2"/>
+  </g>
+
+  <g font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#0b0b0b" text-anchor="middle">
+    <text x="141" y="52">71</text>
+    <text x="267" y="262">9</text>
+    <text x="393" y="265">8</text>
+    <text x="519" y="290">1</text>
+  </g>
+
+  <g font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="13" fill="#898781" text-anchor="middle">
+    <text x="141" y="320">PASS</text>
+    <text x="267" y="320">SOR3</text>
+    <text x="393" y="320">MQ40</text>
+    <text x="519" y="320">QD2</text>
+  </g>
+  <g font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11" fill="#898781" text-anchor="middle">
+    <text x="141" y="336">(passed)</text>
+    <text x="267" y="336">strand bias</text>
+    <text x="393" y="336">mapping quality</text>
+    <text x="519" y="336">quality by depth</text>
+  </g>
+</svg>

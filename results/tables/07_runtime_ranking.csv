@@ -1,0 +1,2 @@
+project,pipeline_name,runtime_seconds,runtime_notes,speed_rank
+Germline Variant Calling Pipeline,Germline variant calling (GATK4),214.0,"3 minutes 34 seconds, 1 CPU core, no GPU (verified in README)",1

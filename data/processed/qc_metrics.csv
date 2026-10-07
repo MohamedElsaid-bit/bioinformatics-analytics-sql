@@ -1,0 +1,19 @@
+run_id,metric_name,metric_value,source_note
+1,genes_tested,3543,results/tables/deseq2_results.tsv row count
+1,significant_degs,108,"README: 108 differentially expressed, padj<0.05 and |log2FC|>1"
+1,degs_upregulated,61,README
+1,degs_downregulated,47,README
+1,pc1_variance_explained_pct,55.9,README PCA figure caption
+1,hallmark_sets_tested,35,README GSEA section
+1,hallmark_sets_significant,0,"README GSEA section, reported honestly"
+1,best_hallmark_fdr,0.139,README GSEA section
+2,raw_candidate_variants,89,results/tables/bcftools_stats.txt
+2,pass_variants,71,results/tables/bcftools_stats.txt
+2,pass_snps,68,results/tables/bcftools_stats.txt
+2,pass_indels,3,results/tables/bcftools_stats.txt
+2,titv_ratio,0.26,"results/tables/bcftools_stats.txt, expected artifact of simulated reads"
+2,dbsnp_concordance_pct,0,"README, expected artifact of simulated reads"
+2,duplication_rate_pct,0.05,README / dup_metrics.txt
+3,best_test_accuracy,0.983,README test set table (Logistic Regression and SVM tied)
+3,best_test_roc_auc,0.995,README test set table
+3,random_forest_test_accuracy,0.956,README test set table
